@@ -71,3 +71,11 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More visible shadow */
   }
 
+.downloadButton {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.downloadButton:hover {
+    cursor: pointer;
+}
