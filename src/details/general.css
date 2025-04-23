@@ -1,0 +1,73 @@
+.container {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+  }
+.personCard {
+    position: relative; /* Enables absolute positioning inside */
+    border: 5px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More visible shadow */
+  }
+  .cardImage {
+    position: absolute;
+    border: 3px solid white;
+    border-radius: 10px;
+    top: 20px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More visible shadow */
+  }
+
+  .introText {
+    margin-right: 20px; 
+  }
+  
+  /*first parts, to wrap around the image*/
+  .introText1 {
+    margin-right: 90px;
+    margin-top: 0px;   
+
+  }
+
+.pageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+  }
+  
+  .sideButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .sideButton:disabled {
+    background-color: #cccccc; /* gray color */
+    color: #666666;
+    cursor: not-allowed;
+  }
+
+  .Qcard {
+    border: 5px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More visible shadow */
+  }
+
