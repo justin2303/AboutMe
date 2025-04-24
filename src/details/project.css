@@ -1,0 +1,24 @@
+.projectWrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px;
+    color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top:10px;
+  }
+.projectCard {
+    width: calc(35%); /* 3 cards per row, considering the gap */
+    height: 400;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 5px solid white;
+    margin: 20px;
+}
+.projectVid {
+    width: 100%;
+}

@@ -2,7 +2,7 @@ import './App.css';
 import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom'; // import BrowserRouter
 
 import AboutMe from './details/aboutme';
-
+import MyProjects from './details/project';
 const App = () => {
   return (
     <BrowserRouter> 
@@ -10,6 +10,7 @@ const App = () => {
         {/* Default route: redirect to /login */}
         <Route path="/" element={<Navigate to="/AboutMe" />} />
         <Route path="/AboutMe" element={<AboutMe />} />
+        <Route path="/MyProjects" element={<MyProjects />} />
       </Routes>
     </BrowserRouter> 
   );

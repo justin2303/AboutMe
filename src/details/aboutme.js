@@ -43,7 +43,7 @@ const AboutMe = () => {
                             The 2 main things I took away from that internship was: <br />
                             1. The ability and tools required to work effectively on projects as a team. (e.g. Git, AGILE, etc.) <br />
                             2. Familiarity and comfortability with writing fullstack, especially backend code. <br />
-                            Both of which I developed further through a personal project, which is now on hold due to more pressing life issues.
+                            Both of takeaways I developed further through a personal project, which is now on hold due to more pressing life issues.
                         </p>
                         </div>
                     )}
@@ -63,7 +63,7 @@ const AboutMe = () => {
                             <p className='introText'>
                             Here's a version of my resume to download if you want:
                             </p>
-                            <img src='/download.webp' className='downloadButton' onClick={HandleDownload}></img>
+                            <img src='/download.webp' className='downloadButton' onClick={HandleDownload} alt='download_button'></img>
                         </div>
                         </div>
                     )}
