@@ -11,7 +11,7 @@
   }
 .projectCard {
     width: calc(35%); /* 3 cards per row, considering the gap */
-    height: 400;
+    height: 800px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -21,4 +21,9 @@
 }
 .projectVid {
     width: 100%;
+}
+.videoWrapper {
+    position: relative;
+    display: inline-block;
+    border-bottom: 3px solid white;
 }

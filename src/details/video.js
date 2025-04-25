@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './project.css';
 
-const HoverPlayVideo = ({ src }) => {
+const HoverPlayVideo = ({ src, name, techstack}) => {
   const videoRef = useRef(null);
   const [playedOnce, setPlayedOnce] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -30,7 +30,7 @@ const HoverPlayVideo = ({ src }) => {
   };
 
   return (
-    <div className="videoWrapper" style={{ position: 'relative', display: 'inline-block' }}>
+    <div className="videoWrapper" >
       <video
         ref={videoRef}
         src={src}
@@ -46,7 +46,7 @@ const HoverPlayVideo = ({ src }) => {
         className="videoControlButton"
         style={{
           position: 'absolute',
-          bottom: '115px',
+          bottom: '160px',
           right: '220px',
           padding: '10px',
           borderRadius: '50%',
@@ -59,6 +59,7 @@ const HoverPlayVideo = ({ src }) => {
       >
         {isPlaying ? '❚❚' : '▶'}
       </button>
+      <p><b>{name}</b>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<i>{techstack}</i></p>
     </div>
   );
 };
