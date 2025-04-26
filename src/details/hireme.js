@@ -44,7 +44,7 @@ const HireMe = () => {
                     <div className='traitCard'>
                         <p>6. I have high <u><b>initiative</b></u>. I don't like to wait for problems to occur, instead I actively seek ways 
                         to fix possible problems, or to improve myself or whatever I'm working on. Even through bouts of heart break or depression,
-                        I still inch myself forward, towards a better me, and a better future.
+                        I still inch myself forward, towards a better me and a better future.
                         </p>
                     </div>
                </div>

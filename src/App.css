@@ -54,10 +54,9 @@ body {
 .navbar-wrapper {
   width: 100%;
   display: block;
-  background: #545252;
   color: white;
-  border-color: #000000;
+  border-color: white;
   border-width: thick;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid white;
 }
 
