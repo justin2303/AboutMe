@@ -3,15 +3,15 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 40px;
+    padding: 20px;
     color: white;
     margin-left: 40px;
     margin-right: 40px;
     margin-top:10px;
+    align-items: stretch;
   }
 .projectCard {
-    width: calc(35%); /* 3 cards per row, considering the gap */
-    height: 800px;
+    width: calc(35%); /* 2 cards per row, considering the gap */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -26,4 +26,12 @@
     position: relative;
     display: inline-block;
     border-bottom: 3px solid white;
+}
+.projectLinks{
+    margin-top: 0; /* This will remove any top margin */
+    padding-top: 0; /* This will remove any padding on top, if needed */
+}
+.projectLinks a {
+    text-decoration: underline;
+    color:aqua;
 }

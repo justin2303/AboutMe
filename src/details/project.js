@@ -10,6 +10,7 @@ const MyProjects = () => {
             </div>
             <div className="projectWrapper">
                 <div className='projectCard'>
+                    <p className='projectLinks'><a href='https://github.com/justin2303/NW_social_frontend'>frontend</a> / <a href='https://github.com/justin2303/NW_social_app'>backend</a></p>
                     <HoverPlayVideo src="/61e app demo.mp4" name="Napoleonic Wars Social App" techstack="Go, React.js, MySQL, Docker" />
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;It's a social web app for use of Saturday NA linebattle attendees in the game 
                         Mount and Blade: Napoleonic Wars. The backend is made with Go, the frontend with React.js but the database uses a hybrid
@@ -29,6 +30,7 @@ const MyProjects = () => {
                          </p>
                 </div>
                 <div className='projectCard'>
+                    <p className='projectLinks'><a href='https://github.com/justin2303/I-E-battle-simulator'>link</a></p>
                     <HoverPlayVideo src="/I&E battlesim.mp4" name="I&E battle simulator" techstack="HTML/CSS, JavaScript"/>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;This is a simple web based battle simulator for a game my friend made called Industry & Empire.
                     It's purpose is to simulate a battle for this game, using a similar battle calculator as a popular grand strategy game called
@@ -42,7 +44,11 @@ const MyProjects = () => {
                     turns until one army runs out of troops or decides to retreat prematurely.
                     </p>
                 </div>
-                <div className='projectCard' style={{height: '600px'}}>
+                </div>
+                <div className="projectWrapper">
+                <div className='projectCard' >
+                    <p className='projectLinks'><a href='https://jc0323.pythonanywhere.com/'>deployment</a> / 
+                    <a href='https://github.com/justin2303/61e_server'>code link</a></p>
                     <HoverPlayVideo src="/61e Web Demo.mp4" name="61e Website" techstack="Python, Django, HTML/CSS, JavaScript, Celery"/>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;This was one of my first personal projects, one that I made to get better at programming in general because at this point,
                     I had just switched from Electrical Engineering to Computer Science. This project was inspired by a series of youtube vidoes
@@ -52,10 +58,10 @@ const MyProjects = () => {
                     In addition to giving information about the community, it contains a leaderboards page which updates each week, parsing a server log file
                     to populate some Python lists with player data. Data is not persistent, but this approach works for a weekly showing.
                     It also has a newsletter which emails you whenever a 61e community post is made in a website called Moria Shrine.
-                    
                     </p>
                 </div>
-                <div className='projectCard'  style={{height: '600px'}}>
+                <div className='projectCard' >
+                <p className='projectLinks'><a href='https://github.com/justin2303/ecs170_WebAppProject'>link</a></p>
                 <HoverPlayVideo src="/Maze AI demo.mp4" name="Maze game AI solver" techstack="Python, Flask, JavaScript, HTML/CSS"/>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;This is a group project for an AI class for college. The idea was to make a Maze solver which used multiple algorithms
                         to test how one does against another. After some research we decided to use Beam search, A star, and Dijkstra's.

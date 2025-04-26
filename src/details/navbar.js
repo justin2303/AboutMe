@@ -7,7 +7,7 @@ const NavBar = () => {
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
-  const profilePic = '/logo192.png'
+  const profilePic = '/settings.png'
   return (
     <nav className="navbar">
       <ul>
