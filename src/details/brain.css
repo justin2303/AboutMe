@@ -1,0 +1,61 @@
+.brainDiv {
+    background-image: url('/public/transparent brain.png');
+    width: 300px;
+    height: 300px;
+    background-size: cover; /* or contain */
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    }
+.topLeft {
+    position:absolute;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer; /* Optional: shows pointer on hover */
+    right: 150px;
+    bottom:200px;
+    font-size: x-large;
+}
+.topRight {
+    position:absolute;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer; /* Optional: shows pointer on hover */
+    left: 175px;
+    bottom:170px;
+    font-size: x-large;
+}
+.bottomLeft {
+    position:absolute;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer; /* Optional: shows pointer on hover */
+    right: 170px;
+    top:160px;
+    font-size: x-large;
+}
+.bottomRight {
+    position:absolute;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer; /* Optional: shows pointer on hover */
+    left: 160px;
+    top:170px;
+    font-size: x-large;
+}

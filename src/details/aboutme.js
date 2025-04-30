@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import NavBar from './navbar';
+import Brain from './brain';
 import './general.css';
 const AboutMe = () => {
     const [showAbout, setAbout] = useState(true);
@@ -36,10 +37,10 @@ const AboutMe = () => {
                         </p> 
                         <p className='introText'>
                             I decided to make an about me page because I thought it would help me stand out as a job applicant, and to touch up on some 
-                            react. As you can probably gather, I am looking for a job, hopefully software related, but at this point I'd take anything
-                            that gives me the opportunity to get the job I'm looking for. In terms of relevant experience, I interned for Xage Security
+                            react. As you can probably gather, I am looking for a job, hopefully software related. <br /><br />In terms of relevant experience, I interned for Xage Security
                             in Palo Alto throughout the summer of 2024, where I successfully integrated a performace metric collecting system into the 
                             testing suite of the QA team. I did a few other things there like fixing minor bugs, creating simple tools, writing CI/CD pipelines.
+                            <br /><br />
                             The 2 main things I took away from that internship was: <br />
                             1. The ability and tools required to work effectively on projects as a team. (e.g. Git, AGILE, etc.) <br />
                             2. Familiarity and comfortability with writing fullstack, especially backend code. <br />
@@ -49,14 +50,8 @@ const AboutMe = () => {
                     )}
                     {showSkills && (<div >
                         <div className='Qcard'> 
-                            <p className='introText'>
-                           <b>Here's a Brief Overview of my skills:</b><br /> 
-                           <b>Languages:</b>&nbsp;&nbsp;&nbsp;&nbsp;Go, JavaScript, Python, MySQL, C++, HTML/CSS, Bash, Groovy, Java, C, R <br />
-                           <b>Frameworks:</b>&nbsp;&nbsp;&nbsp;&nbsp;React.js, Pytest, Node.js, Angular, Django, Flask, Celery <br />
-                           <b>Tools:</b>&nbsp;&nbsp;&nbsp;&nbsp;Docker, AWS, Github, bash, pdb, Jupyter Notebooks, VS Code, g++ <br />
-                           <b>Concepts:</b>&nbsp;&nbsp;&nbsp;&nbsp;Algorithms and data structures, Multithreading, RESTful API Design, SQL/no-SQL
-                           DBs, Event-Driven, Architecture, Version Control, Agile/Scrum <br />
-                        </p>
+                            <p>Here are my skills: </p>
+                            <Brain /> 
                         </div>
                         <br />
                         <div className='Qcard'> 

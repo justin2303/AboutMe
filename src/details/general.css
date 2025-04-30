@@ -79,3 +79,8 @@
 .downloadButton:hover {
     cursor: pointer;
 }
+
+.brainIMG{
+  height:300px;
+  width:300px;
+}
