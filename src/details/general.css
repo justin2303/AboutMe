@@ -84,3 +84,11 @@
   height:300px;
   width:300px;
 }
+.BrainCard {
+  border: 5px solid white;
+  padding: 200px;
+  border-radius: 10px;
+  width: 300px;
+  height:250px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More visible shadow */
+}

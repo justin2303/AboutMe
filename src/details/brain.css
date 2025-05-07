@@ -1,11 +1,19 @@
 .brainDiv {
-    background-image: url('/public/transparent brain.png');
+    position: relative;
+    width: 800px;
+    height: 800px;
+    margin: 0 auto;
+    border: 2px solid white;
+    }
+
+.brainImg {
+    position: absolute;
     width: 300px;
     height: 300px;
-    background-size: cover; /* or contain */
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
     }
 .topLeft {
     position:absolute;
@@ -16,8 +24,8 @@
     padding: 0;
     margin: 0;
     cursor: pointer; /* Optional: shows pointer on hover */
-    right: 150px;
-    bottom:200px;
+    left: 280px;
+    top:  350px;
     font-size: x-large;
 }
 .topRight {
@@ -29,8 +37,8 @@
     padding: 0;
     margin: 0;
     cursor: pointer; /* Optional: shows pointer on hover */
-    left: 175px;
-    bottom:170px;
+    left: 420px;
+    top: 360px;
     font-size: x-large;
 }
 .bottomLeft {
@@ -42,8 +50,8 @@
     padding: 0;
     margin: 0;
     cursor: pointer; /* Optional: shows pointer on hover */
-    right: 170px;
-    top:160px;
+    left: 300px;
+    top:420px;
     font-size: x-large;
 }
 .bottomRight {
@@ -55,7 +63,27 @@
     padding: 0;
     margin: 0;
     cursor: pointer; /* Optional: shows pointer on hover */
-    left: 160px;
-    top:170px;
+    left: 410px;
+    top:420px;
     font-size: x-large;
 }
+
+.node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+  
+  .brainLines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 800px;
+    pointer-events: none;
+    z-index: 5;
+  }

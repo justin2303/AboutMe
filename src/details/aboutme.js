@@ -49,10 +49,7 @@ const AboutMe = () => {
                         </div>
                     )}
                     {showSkills && (<div >
-                        <div className='Qcard'> 
-                            <p>Here are my skills: </p>
-                            <Brain /> 
-                        </div>
+                        <Brain />
                         <br />
                         <div className='Qcard'> 
                             <p className='introText'>
