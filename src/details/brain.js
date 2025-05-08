@@ -24,8 +24,8 @@ const Brain =() => {
     const angles = {
         topLeft: [180, 165, 150, 135, 120, 100, 80, 60, 40    ],
         topRight: [0, 20, 40, 60, 80, 100, 120  ],
-        bottomLeft: [180, 200, 220, 240, 260, 280, 300, 320],
-        bottomRight:[30, 340, 310, 275, 240, 205, 190]
+        bottomLeft: [180, 200, 220, 240, 255, 275, 290, 300],
+        bottomRight:[10, 340, 320, 300, 280, 250, 220]
     }
     const innerOffset = 80  ;
     const outerOffset = 40  ;
