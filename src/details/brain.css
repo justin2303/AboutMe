@@ -38,7 +38,7 @@
     margin: 0;
     cursor: pointer; /* Optional: shows pointer on hover */
     left: 420px;
-    top: 360px;
+    top: 350px;
     font-size: x-large;
 }
 .bottomLeft {
@@ -86,4 +86,15 @@
     height: 800px;
     pointer-events: none;
     z-index: 5;
+  }
+
+  .nodeFadeIn {
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
   }
