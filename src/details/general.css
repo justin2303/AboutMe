@@ -5,6 +5,9 @@
     margin-left: 40px;
     margin-right: 40px;
     margin-top: 40px;
+    width: 600px;
+    height: 700px;
+    overflow: visible;
   }
 .personCard {
     position: relative; /* Enables absolute positioning inside */
@@ -42,6 +45,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 40px;
+    overflow: visible;
   }
   
   .sideButton {
@@ -56,6 +60,8 @@
     transition: background-color 0.2s ease;
     margin-left: 100px;
     margin-right: 100px;
+    width: 250px;
+    height: 40px;  
   }
   .sideButton:disabled {
     background-color: #cccccc; /* gray color */

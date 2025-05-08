@@ -46,17 +46,16 @@ const AboutMe = () => {
                             2. Familiarity and comfortability with writing fullstack, especially backend code. <br />
                             Both of takeaways I developed further through a personal project, which is now on hold due to more pressing life issues.
                         </p>
+                            <p className='introText'>
+                            <b>Here's a version of my resume to download if you want:</b>
+                            </p>
+                            <img src='/download.webp' className='downloadButton' onClick={HandleDownload} alt='download_button'></img>
                         </div>
+                        
                     )}
                     {showSkills && (<div >
                         <Brain />
                         <br />
-                        <div className='Qcard'> 
-                            <p className='introText'>
-                            Here's a version of my resume to download if you want:
-                            </p>
-                            <img src='/download.webp' className='downloadButton' onClick={HandleDownload} alt='download_button'></img>
-                        </div>
                         </div>
                     )}
                 </div>

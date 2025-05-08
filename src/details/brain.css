@@ -1,9 +1,9 @@
 .brainDiv {
     position: relative;
-    width: 800px;
-    height: 800px;
+    width: 500px;
+    height: 500px;
     margin: 0 auto;
-    border: 2px solid white;
+    overflow: visible;
     }
 
 .brainImg {
@@ -24,8 +24,8 @@
     padding: 0;
     margin: 0;
     cursor: pointer; /* Optional: shows pointer on hover */
-    left: 280px;
-    top:  350px;
+    left: 130px;
+    top:  200px;
     font-size: x-large;
 }
 .topRight {
@@ -37,8 +37,8 @@
     padding: 0;
     margin: 0;
     cursor: pointer; /* Optional: shows pointer on hover */
-    left: 420px;
-    top: 350px;
+    left: 270px;
+    top: 190px;
     font-size: x-large;
 }
 .bottomLeft {
@@ -50,8 +50,8 @@
     padding: 0;
     margin: 0;
     cursor: pointer; /* Optional: shows pointer on hover */
-    left: 300px;
-    top:420px;
+    left: 160px;
+    top:275px;
     font-size: x-large;
 }
 .bottomRight {
@@ -63,8 +63,8 @@
     padding: 0;
     margin: 0;
     cursor: pointer; /* Optional: shows pointer on hover */
-    left: 410px;
-    top:420px;
+    left: 270px;
+    top:275px;
     font-size: x-large;
 }
 
@@ -86,6 +86,7 @@
     height: 800px;
     pointer-events: none;
     z-index: 5;
+    overflow: visible;
   }
 
   .nodeFadeIn {
