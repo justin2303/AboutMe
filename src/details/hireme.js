@@ -1,55 +1,169 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import NavBar from './navbar';
 import './hireme.css'
 const HireMe = () => {
+    const [currentQuery, setCurrentQuery] = useState("")
+    const [previousQueries, setPreviousQueries] = useState([]);
+    const [chatHistory, setChatHistory] = useState([]);
+    const chatHistoryRef = useRef(null);
+    const initialMessageShown = useRef(false);
+    const spriteRef = useRef(null);
+
+    useEffect(() => {
+    const container = chatHistoryRef.current;
+    if (!container || initialMessageShown.current) return;
+
+    if (chatHistory.length === 0) {
+        initialMessageShown.current = true;
+        
+        const welcomeMsg = "Hi, I am Justin's AI assistant, I'm here to answer your hiring questions!";
+        const p = document.createElement('p');
+        p.className = 'ai-message';
+        container.appendChild(p);
+        const cursor = document.createElement('span');
+        cursor.textContent = '|';
+        cursor.style.display = 'inline-block';
+        cursor.style.marginLeft = '2px';
+        cursor.style.animation = 'blink 1s step-start 0s infinite';
+        p.appendChild(cursor);
+
+        let i = 0;
+        if (spriteRef.current) {
+            spriteRef.current.src = 'talkingsprite.gif';
+            }
+        const interval = setInterval(() => {
+        p.textContent = p.textContent.slice(0, -1) + welcomeMsg.charAt(i);
+        p.appendChild(cursor); // re-append after typing
+        i++;
+        if (i >= welcomeMsg.length) {
+            clearInterval(interval);
+            if (spriteRef.current) {
+                spriteRef.current.src = 'donesprite.png';
+                setTimeout(() => {
+                    spriteRef.current.src = 'botsprite.png';
+                }, 800); 
+              }
+            cursor.remove();
+        }
+        }, 30);
+
+        container.scrollTop = container.scrollHeight;
+    }
+    }, []);
+    useEffect(() => {
+        if (chatHistory.length === 0) {
+            setCurrentQuery("Why should I hire Justin?")
+            return;
+        }
+        const latestIndex = chatHistory.length - 1;
+        const latestMessage = chatHistory[latestIndex];
+    
+        const container = chatHistoryRef.current;
+        if (!container) return;
+        // Create new paragraph element
+        const p = document.createElement('p');
+        
+        // User message (even index): just add text with background
+        if (latestIndex % 2 === 0 ) {
+          p.textContent = latestMessage;
+          p.className = 'user-message';
+          container.appendChild(p);
+        } 
+        // AI message (odd index): animate typewriter manually
+        else {
+            p.className = 'ai-message';
+            container.appendChild(p);
+    
+            const cursor = document.createElement('span');
+            cursor.textContent = '|';
+            cursor.style.display = 'inline-block';
+            cursor.style.marginLeft = '2px';
+            cursor.style.animation = 'blink 1s step-start 0s infinite';
+            p.appendChild(cursor);
+            if (spriteRef.current) {
+                spriteRef.current.src = 'talkingsprite.gif';
+                }
+            let i = 0;
+            const interval = setInterval(() => {
+            // Insert one character before the cursor span
+            p.textContent = p.textContent.slice(0, -1) + latestMessage.charAt(i);
+            p.appendChild(cursor); // re-append cursor span after updating text
+
+            i++;
+            if (i >= latestMessage.length) {
+                clearInterval(interval);
+                if (spriteRef.current) {
+                    spriteRef.current.src = 'donesprite.png';
+                    setTimeout(() => {
+                        spriteRef.current.src = 'botsprite.png';
+                    }, 500); 
+                  }
+                cursor.remove();
+            }
+            }, 30);
+        }
+    
+        // Scroll chat to bottom
+        container.scrollTop = container.scrollHeight;
+      }, [chatHistory]);
+      const sendMessage = () => {
+        const updated = [...previousQueries, currentQuery];
+        setPreviousQueries(updated);
+        setChatHistory((prev) => [...prev, currentQuery]);
+
+        if (spriteRef.current) {
+          spriteRef.current.src = 'thinkingsprite.png';
+        }
+        const delay = new Promise((resolve) => setTimeout(resolve, 3000));
+        fetch('http://localhost:3001/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            messages: [{ role: 'user', content: currentQuery }],
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            const response = data.choices?.[0]?.message?.content || 'Sorry, no response received.';
+            setChatHistory((prev) => [...prev, response]);
+          })
+          .catch((err) => {
+            console.error('API error:', err);
+            setChatHistory((prev) => [...prev, 'Sorry, something went wrong.']);
+          });
+      
+        // Don't do sprite reset here — it's handled in useEffect when typing response
+      };
+      const updateQuery =(val)=> {
+        setCurrentQuery(val);
+    }
+
     return (
         <div>
             <div className='navbar-wrapper'>
                 <NavBar/> 
             </div>
-               <div className='oneLine'>
-                    <div className='traitCard'>
-                        <p>1. On top of my existing skills, I'm a <u><b>fast learner</b></u> who is determined to contribute to whatever team I find 
-                            myself a part of. The very reason why I do personal projects is to learn some new skill/technology/framework, so 
-                            I can pick up things faster in any software development environment.
-                        </p>
-                        </div>
-                    <div className='traitCard'>
-                        <p>2. I'm a <u><b>hard worker</b></u>. I am happy to work late hours if there is a specific goal I have in mind. I 
-                        use a great deal of my free time improving myself physically and mentally. Additionally, I'm not afraid to get my 
-                        hands dirty. For example, I did a series of construction and carpentry related volunteer jobs while I was in highschool.
-                        </p>
-                    </div>
-                    <div className='traitCard'>
-                        <p>3. I'm a <u><b>problem solver</b></u>. I enjoy solving tricky problems, whether they take the form of algorithm problems or 
-                        tactical problems in military strategy games, I spend a lot of time doing both and more.
-                        </p>
-                    </div>
-               </div>
-               <div className='oneLine'>
-                    <div className='traitCard'>
-                        <p>4. I am <u><b>humble</b></u>, and am always willing to learn something new. It's a bit ironic to claim humbleness on
-                        an self promoting website, but I really didn't want to do this. I don't like promoting myself and stating "facts" about me which
-                        realistically change based on the person reviewing me, since all of my traits here are subjective to begin with. However,
-                        I had to try something new in my quest to find a Software related job today, and this is one way to stand out.
-                        </p>
-                        </div>
-                    <div className='traitCard'>
-                        <p>5. I'm a <u><b>team player</b></u>. I've consistently made it a priority to be a reliable and supportive team member. 
-                        I actively encourage open communication, seek input from quieter voices, and work to ensure that every group member feels included
-                         and valued. I also hold myself to a high standard of accountability, striving to contribute meaningfully, meet deadlines, 
-                         and ensure that my work strengthens rather than burdens the team. I believe that a team’s success is built not just on individual performance, but on how well members empower each other to succeed.
-                        </p>
-                    </div>
-                    <div className='traitCard'>
-                        <p>6. I have high <u><b>initiative</b></u>. I don't like to wait for problems to occur, instead I actively seek ways 
-                        to fix possible problems, or to improve myself or whatever I'm working on. Even through bouts of heart break or depression,
-                        I still inch myself forward, towards a better me and a better future.
-                        </p>
-                    </div>
-               </div>
-                
+               
+            <div className='Ai-box'>
+                <div className='sprite-box'>
+                    <img ref={spriteRef} src='botsprite.png' alt="Bot Sprite" />
+                </div>
+                <div className='chat-box'>
+                <div
+                className="chat-history"
+                ref={chatHistoryRef}
+                ></div>
+                <div className  ="message-area">
+                <textarea id="input" placeholder="Ask me a question..."  
+                value={currentQuery}
+                onChange={(e) => updateQuery(e.target.value)}></textarea>
+                <img  onClick={sendMessage} src='send.png'></img>
+                </div>
+                </div>
             </div>
+        </div>
     )
 };
 export default HireMe;
