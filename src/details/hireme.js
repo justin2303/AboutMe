@@ -29,7 +29,7 @@ const HireMe = () => {
 
         let i = 0;
         if (spriteRef.current) {
-            spriteRef.current.src = 'talkingsprite.gif';
+            spriteRef.current.src = 'eurekasprite.png';
             }
         const interval = setInterval(() => {
         p.textContent = p.textContent.slice(0, -1) + welcomeMsg.charAt(i);
@@ -38,10 +38,7 @@ const HireMe = () => {
         if (i >= welcomeMsg.length) {
             clearInterval(interval);
             if (spriteRef.current) {
-                spriteRef.current.src = 'donesprite.png';
-                setTimeout(() => {
-                    spriteRef.current.src = 'botsprite.png';
-                }, 800); 
+                spriteRef.current.src = 'botsprite.png';
               }
             cursor.remove();
         }
@@ -52,7 +49,6 @@ const HireMe = () => {
     }, []);
     useEffect(() => {
         if (chatHistory.length === 0) {
-            setCurrentQuery("Why should I hire Justin?")
             return;
         }
         const latestIndex = chatHistory.length - 1;
@@ -81,7 +77,7 @@ const HireMe = () => {
             cursor.style.animation = 'blink 1s step-start 0s infinite';
             p.appendChild(cursor);
             if (spriteRef.current) {
-                spriteRef.current.src = 'talkingsprite.gif';
+                spriteRef.current.src = 'eurekasprite.png';
                 }
             let i = 0;
             const interval = setInterval(() => {
@@ -93,10 +89,7 @@ const HireMe = () => {
             if (i >= latestMessage.length) {
                 clearInterval(interval);
                 if (spriteRef.current) {
-                    spriteRef.current.src = 'donesprite.png';
-                    setTimeout(() => {
-                        spriteRef.current.src = 'botsprite.png';
-                    }, 500); 
+                    spriteRef.current.src = 'botsprite.png';
                   }
                 cursor.remove();
             }
@@ -106,22 +99,31 @@ const HireMe = () => {
         // Scroll chat to bottom
         container.scrollTop = container.scrollHeight;
       }, [chatHistory]);
-      const sendMessage = () => {
-        const updated = [...previousQueries, currentQuery];
+      const sendMessage = (msg) => {
+        let message = msg
+        if (!msg?.trim()) {
+            console.log("msg is empty or only whitespace");
+            message=currentQuery
+          }
+        else {
+            message = msg
+        }
+        const updated = [...previousQueries, message];
         setPreviousQueries(updated);
-        setChatHistory((prev) => [...prev, currentQuery]);
+        setChatHistory((prev) => [...prev, message]);
 
         if (spriteRef.current) {
           spriteRef.current.src = 'thinkingsprite.png';
         }
         const delay = new Promise((resolve) => setTimeout(resolve, 3000));
+        setCurrentQuery("")
         fetch('http://localhost:3001/api/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            messages: [{ role: 'user', content: currentQuery }],
+            messages: [{ role: 'user', content: message }],
           }),
         })
           .then((res) => res.json())
@@ -134,10 +136,12 @@ const HireMe = () => {
             setChatHistory((prev) => [...prev, 'Sorry, something went wrong.']);
           });
       
-        // Don't do sprite reset here — it's handled in useEffect when typing response
       };
       const updateQuery =(val)=> {
         setCurrentQuery(val);
+    }
+    const handleFAQ =(FAQ)=> {
+        sendMessage(FAQ);
     }
 
     return (
@@ -151,16 +155,24 @@ const HireMe = () => {
                     <img ref={spriteRef} src='botsprite.png' alt="Bot Sprite" />
                 </div>
                 <div className='chat-box'>
-                <div
-                className="chat-history"
-                ref={chatHistoryRef}
-                ></div>
-                <div className  ="message-area">
-                <textarea id="input" placeholder="Ask me a question..."  
-                value={currentQuery}
-                onChange={(e) => updateQuery(e.target.value)}></textarea>
-                <img  onClick={sendMessage} src='send.png'></img>
+                    <div
+                    className="chat-history"
+                    ref={chatHistoryRef}
+                    ></div>
+                    <div className  ="message-area">
+                    <textarea id="input" placeholder="Ask me a question..."  
+                    value={currentQuery}
+                    onChange={(e) => updateQuery(e.target.value)}></textarea>
+                    <img  onClick={() => sendMessage()} src='send.png'></img>
+                    </div>
                 </div>
+                <div className='FAQs'>
+                    <p>FAQs:</p>
+                    <button onClick={() => handleFAQ("Why should I hire you?")}>1. Why should I hire you?</button>
+                    <button  onClick={() => handleFAQ("What are your technical strengths?")}>2. What are your technical strengths?</button>
+                    <button  onClick={() => handleFAQ("What kind of projects have you worked on?")}>3. What kind of projects have you worked on?</button>
+                    <button  onClick={() => handleFAQ("What's your experience with Agile/Scrum?")}>4. What's your experience with Agile/Scrum?</button>
+                    <button onClick={() => handleFAQ("Have you dealt with performance bottlenecks?")}>5. Have you dealt with performance bottlenecks?</button>
                 </div>
             </div>
         </div>

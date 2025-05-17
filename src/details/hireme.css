@@ -19,14 +19,15 @@
     margin-top: 20px;
 }
 .Ai-box {
-    display: flex; /* Let children (sprite and maybe text) sit side-by-side */
+    display: flex; 
     border: 5px solid white;
     border-radius: 10px;
     margin: 20px 20px 0 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    align-items: center; /* align vertically if needed */
-    padding: 0; /* remove padding so borders touch content */
+    align-items: center; 
+    padding: 0;
     height: 400px;
+    background-color: #222629;
   }
   
   .sprite-box {
@@ -48,7 +49,7 @@
     width: 100%;
     box-sizing: border-box;
     height:400px;
-    background-color: #222629;
+    border-right: 5px solid white; 
   }
   
   .message-area {
@@ -92,4 +93,31 @@
     max-width: 70%;
     white-space: pre-wrap;
   }
-    
+  .FAQs {
+    width: 30%;
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    padding-top: 20px;
+    height:400px;
+    overflow-y: auto;  
+  }
+  .FAQs p {
+    text-align: left;  
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom:  1px solid white;
+  }
+  .FAQs button {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid white; /* or any color you want */
+    color: white;
+    padding: 0.5rem 1rem;
+    width: 100%; /* optional: makes it full width */
+    text-align: left; /* optional: aligns text to the left */
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+  }
