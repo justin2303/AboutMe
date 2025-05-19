@@ -105,7 +105,7 @@ const HireMe = () => {
         // Scroll chat to bottom
         container.scrollTop = container.scrollHeight;
       }, [chatHistory]);
-      const sendMessage = (msg) => {
+      const sendMessage = async (msg) => {
         let message = msg
         if (!msg?.trim()) {
             console.log("msg is empty or only whitespace");
@@ -117,12 +117,11 @@ const HireMe = () => {
         const updated = [...previousQueries, message];
         setPreviousQueries(updated);
         setChatHistory((prev) => [...prev, message]);
-        (async () => {
+        
         if (spriteRef.current) {
           spriteRef.current.src = 'thinkingsprite.png';
         }
         await delay(2000);
-        })();
         setCurrentQuery("")
         fetch('https://aboutme-justin.space/api/chat', {
           method: 'POST',
