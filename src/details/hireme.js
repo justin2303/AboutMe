@@ -117,7 +117,7 @@ const HireMe = () => {
         }
         const delay = new Promise((resolve) => setTimeout(resolve, 3000));
         setCurrentQuery("")
-        fetch('http://localhost:3001/api/chat', {
+        fetch('http://13.219.165.237:3001/api/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
