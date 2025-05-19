@@ -89,6 +89,7 @@ const HireMe = () => {
             if (i >= latestMessage.length) {
                 clearInterval(interval);
                 if (spriteRef.current) {
+                    const delay = new Promise((resolve) => setTimeout(resolve, 2000));
                     spriteRef.current.src = 'botsprite.png';
                   }
                 cursor.remove();
@@ -115,7 +116,7 @@ const HireMe = () => {
         if (spriteRef.current) {
           spriteRef.current.src = 'thinkingsprite.png';
         }
-        const delay = new Promise((resolve) => setTimeout(resolve, 3000));
+        const delay = new Promise((resolve) => setTimeout(resolve, 4000));
         setCurrentQuery("")
         fetch('https://aboutme-justin.space/api/chat', {
           method: 'POST',
