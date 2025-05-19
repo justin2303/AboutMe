@@ -22,6 +22,7 @@ const preloadAssets = () => {
     const img = new Image();
     img.src = src;
   });
+};
 
 const App = () => {
  useEffect(() => {
