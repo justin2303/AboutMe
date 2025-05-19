@@ -8,7 +8,7 @@ const HireMe = () => {
     const chatHistoryRef = useRef(null);
     const initialMessageShown = useRef(false);
     const spriteRef = useRef(null);
-
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
     useEffect(() => {
     const container = chatHistoryRef.current;
     if (!container || initialMessageShown.current) return;
@@ -37,11 +37,13 @@ const HireMe = () => {
         i++;
         if (i >= welcomeMsg.length) {
             clearInterval(interval);
-            if (spriteRef.current) {
-                setTimeout(() => {}, 2000);
+            (async () => {
+              if (spriteRef.current) {
+                await delay(1000);
                 spriteRef.current.src = 'botsprite.png';
               }
-            cursor.remove();
+              cursor.remove();
+            })();
         }
         }, 30);
 
@@ -89,11 +91,13 @@ const HireMe = () => {
             i++;
             if (i >= latestMessage.length) {
                 clearInterval(interval);
-                if (spriteRef.current) {
-                  setTimeout(() => {}, 2000);
+                (async () => {
+                  if (spriteRef.current) {
+                    await delay(1000); 
                     spriteRef.current.src = 'botsprite.png';
                   }
-                cursor.remove();
+                  cursor.remove();
+                })();
             }
             }, 30);
         }
@@ -113,11 +117,12 @@ const HireMe = () => {
         const updated = [...previousQueries, message];
         setPreviousQueries(updated);
         setChatHistory((prev) => [...prev, message]);
-
+        (async () => {
         if (spriteRef.current) {
           spriteRef.current.src = 'thinkingsprite.png';
         }
-        setTimeout(() => {}, 3000);
+        await delay(2000);
+        })();
         setCurrentQuery("")
         fetch('https://aboutme-justin.space/api/chat', {
           method: 'POST',
