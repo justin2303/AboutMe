@@ -117,7 +117,7 @@ const HireMe = () => {
         }
         const delay = new Promise((resolve) => setTimeout(resolve, 3000));
         setCurrentQuery("")
-        fetch('/api/chat', {
+        fetch('https://aboutme-justin.space/api/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
