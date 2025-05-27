@@ -15,7 +15,7 @@ const AboutMe = () => {
       };
     const HandleDownload = () => {
         const link = document.createElement('a');
-        link.href = `${process.env.PUBLIC_URL}/Justin_Resume.pdf`; // Replace with your actual file name
+        link.href = `${process.env.PUBLIC_URL}/updated_resume_JC.pdf`; // Replace with your actual file name
         link.download = 'Justin_Resume.pdf'; 
         document.body.appendChild(link);
         link.click();
@@ -30,7 +30,7 @@ const AboutMe = () => {
                 <button className="sideButton" onClick={HandleAbout} disabled={showAbout}>← Back</button>
                 <div className='container'>
                     {showAbout && (<div className='personCard'>
-                        <img src="/seydlitz.png" alt="Profile" className="cardImage" />
+                        <img src="/pfp.png" alt="Profile" className="cardImage" />
                         <p className='introText1'>Hi, I'm Justin, I'm a software engineer who's passionate about writing functional, efficient,
                             clean code. I'm somewhat of a fullstack engineer as I'm comfortable with any part of the stack, but my backend knowledge
                             is definitely stronger than my frontend.
